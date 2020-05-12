@@ -7,6 +7,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatButtonModule } from '@angular/material/button';
 import { HeaderModule } from './components/header/header.module';
 import { FooterModule } from './components/footer/footer.module';
+import { HomeModule } from './views/home/home.module';
 
 @NgModule({
   declarations: [
@@ -18,6 +19,7 @@ import { FooterModule } from './components/footer/footer.module';
     BrowserAnimationsModule,
     MatButtonModule,
     HeaderModule,
+    HomeModule,
     FooterModule
   ],
   providers: [],
