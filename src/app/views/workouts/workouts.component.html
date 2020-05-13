@@ -1,1 +1,5 @@
 <p>workouts works!</p>
+
+<p *ngFor="let workout of $workouts | async">
+  {{workout.name}}
+</p>
