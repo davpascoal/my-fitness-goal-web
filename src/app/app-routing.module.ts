@@ -1,17 +1,29 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
-import { HomeModule } from './views/home/home.module';
-import { HomeComponent } from './views/home/home.component';
 
 enum AppRoute {
   HOME = '/',
 }
 
+export const views: Routes = [
+  {
+    path: 'workouts',
+    loadChildren: () => import('./views/workouts/workouts-routing.module').then(m => m.WorkoutsRoutingModule),
+    data: {
+      name: 'Workouts'
+    },
+  },
+];
+
 const routes: Routes = [
+  ...views,
   {
     path: '',
     pathMatch: 'full',
     loadChildren: () => import('./views/home/home-routing.module').then(m => m.HomeRoutingModule),
+    data: {
+      name: 'Home'
+    }
   },
   {
     path: '**',

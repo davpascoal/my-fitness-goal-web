@@ -1,3 +1,16 @@
-<mat-toolbar class="header-container">
-  <span>My Application</span>
+<mat-toolbar class="header-container" color="primary">
+  <a
+    routerLink="/"
+    mat-flat-button
+    color="primary">
+    My Application
+  </a>
+
+  <button
+    [routerLink]="[item.path]"
+    *ngFor="let item of headerListItems"
+    mat-button>
+    {{item.data.name}}
+  </button>
+
 </mat-toolbar>

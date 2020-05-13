@@ -8,6 +8,7 @@ import { MatButtonModule } from '@angular/material/button';
 import { HeaderModule } from './components/header/header.module';
 import { FooterModule } from './components/footer/footer.module';
 import { HomeModule } from './views/home/home.module';
+import { WorkoutsModule } from './views/workouts/workouts.module';
 
 @NgModule({
   declarations: [
@@ -20,6 +21,7 @@ import { HomeModule } from './views/home/home.module';
     MatButtonModule,
     HeaderModule,
     HomeModule,
+    WorkoutsModule,
     FooterModule
   ],
   providers: [],
