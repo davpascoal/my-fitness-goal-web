@@ -1,5 +1,11 @@
 <p>workouts works!</p>
 
-<p *ngFor="let workout of $workouts | async">
-  {{workout.name}}
-</p>
+<ng-container *ngIf="!loading; else loadingT">
+  <p *ngFor="let workout of workouts">
+    {{workout.name}}
+  </p>
+</ng-container>
+
+<ng-template #loadingT>
+  Loading...
+</ng-template>

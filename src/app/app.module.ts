@@ -9,6 +9,20 @@ import { HeaderModule } from './components/header/header.module';
 import { FooterModule } from './components/footer/footer.module';
 import { HomeModule } from './views/home/home.module';
 import { WorkoutsModule } from './views/workouts/workouts.module';
+import { StoreModule, ActionReducerMap } from '@ngrx/store';
+import { WorkoutsReducer, WorkoutsState } from './views/workouts/store/workouts.reducer';
+import { StoreDevtoolsModule } from '@ngrx/store-devtools';
+import { environment } from 'src/environments/environment';
+import { EffectsModule } from '@ngrx/effects';
+
+// DEFER TODO: Organize this
+export interface RootState {
+  workouts: WorkoutsState;
+}
+
+const rootReducer: ActionReducerMap<RootState> = {
+  workouts: WorkoutsReducer
+};
 
 @NgModule({
   declarations: [
@@ -22,7 +36,13 @@ import { WorkoutsModule } from './views/workouts/workouts.module';
     HeaderModule,
     HomeModule,
     WorkoutsModule,
-    FooterModule
+    FooterModule,
+    StoreModule.forRoot(rootReducer),
+    EffectsModule.forRoot([]),
+    StoreDevtoolsModule.instrument({
+      maxAge: 25, // Retains last 25 states
+      logOnly: environment.production, // Restrict extension to log-only mode
+    }),
   ],
   providers: [],
   bootstrap: [AppComponent]
