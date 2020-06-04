@@ -1,9 +1,9 @@
 import { Injectable } from '@angular/core';
 import { ofType, createEffect, Actions } from '@ngrx/effects';
 import * as WorkoutsAction from './workouts.actions';
-import { switchMap, mergeMap, catchError, map } from 'rxjs/operators';
+import { switchMap, catchError, map } from 'rxjs/operators';
 import { WorkoutsService } from 'src/app/services/workouts/workouts.service';
-import { Observable, EMPTY } from 'rxjs';
+import { EMPTY } from 'rxjs';
 
 @Injectable()
 export class WorkoutsEffects {

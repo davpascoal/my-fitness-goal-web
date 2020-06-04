@@ -5,6 +5,7 @@ import { RootState } from 'src/app/app.module';
 import * as WorkoutActions from './store/workouts.actions';
 import { selectWorkouts } from './store/workouts.selector';
 import { map } from 'rxjs/internal/operators/map';
+import { IWorkout } from 'src/app/interfaces/workout.interface';
 
 @Component({
   selector: 'app-workouts',
@@ -14,7 +15,7 @@ import { map } from 'rxjs/internal/operators/map';
 })
 export class WorkoutsComponent implements OnInit, OnDestroy {
 
-  public workouts: Array<any>;
+  public workouts: Array<IWorkout>;
   public loading: boolean;
   private $workoutsSubscription: Subscription;
 
@@ -31,12 +32,15 @@ export class WorkoutsComponent implements OnInit, OnDestroy {
         this.workouts = x.workouts.data;
         this.loading = x.workouts.loading;
         this.changeDetectorRef.markForCheck();
-        console.log('loading', this.loading);
       })
     ).subscribe();
 
     // Fetch the workouts
     this.store.dispatch(WorkoutActions.GetWorkoutsRequestAction());
+  }
+
+  public saveWorkout() {
+    console.log('save workout', this.workouts);
   }
 
   public ngOnDestroy() {

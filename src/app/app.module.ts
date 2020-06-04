@@ -14,6 +14,7 @@ import { WorkoutsReducer, WorkoutsState } from './views/workouts/store/workouts.
 import { StoreDevtoolsModule } from '@ngrx/store-devtools';
 import { environment } from 'src/environments/environment';
 import { EffectsModule } from '@ngrx/effects';
+import { HttpClientModule } from '@angular/common/http';
 
 // DEFER TODO: Organize this
 export interface RootState {
@@ -37,6 +38,7 @@ const rootReducer: ActionReducerMap<RootState> = {
     HomeModule,
     WorkoutsModule,
     FooterModule,
+    HttpClientModule,
     StoreModule.forRoot(rootReducer),
     EffectsModule.forRoot([]),
     StoreDevtoolsModule.instrument({

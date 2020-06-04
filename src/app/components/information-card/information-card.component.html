@@ -1,0 +1,29 @@
+<mat-card>
+
+  <mat-card-header>
+    {{data.title}}
+  </mat-card-header>
+
+  <img mat-card-image [src]="data.bgImg" alt="" />
+
+  <mat-card-content>
+
+    <app-editable
+      [action]="action">
+      <ng-template appEditableViewMode>
+        <p>{{data.description}}</p>
+      </ng-template>
+
+      <ng-template appEditableEditMode>
+        <input appEditableAction/>
+        <!-- <p>Edit</p> -->
+      </ng-template>
+    </app-editable>
+
+  </mat-card-content>
+
+  <mat-card-actions>
+    <button mat-button>Save</button>
+  </mat-card-actions>
+
+</mat-card>
