@@ -1,16 +1,13 @@
 import { Component, OnInit, Output, ContentChild, ElementRef, OnDestroy, EventEmitter, HostBinding, HostListener, Input } from '@angular/core';
 import { EditableViewModeDirective } from 'src/app/components/editable/directives/editable-view-mode.directive';
 import { EditableEditModeDirective } from 'src/app/components/editable/directives/editable-edit-mode.directive';
-import { Subject, fromEvent } from 'rxjs';
-import { filter, take, switchMapTo } from 'rxjs/operators';
+import { Subject } from 'rxjs';
 
 @Component({
   selector: 'app-editable',
   template: `
     <ng-container *ngTemplateOutlet="currentView"></ng-container>
   `
-  // template: ``
-  // templateUrl: './editable.component.html'
 })
 export class EditableComponent implements OnInit, OnDestroy {
   @HostBinding('style.display') private display = 'block';
